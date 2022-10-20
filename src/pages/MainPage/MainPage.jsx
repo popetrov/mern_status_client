@@ -13,7 +13,12 @@ export const MainPage = () => {
         try{
             await axios.get('https://popetrov-mern.herokuapp.com/api/data', {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    "Accept": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
+                    "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
                 },
                 params: {userId}
             })
@@ -28,7 +33,12 @@ export const MainPage = () => {
         try{
             await axios.post('https://popetrov-mern.herokuapp.com/api/data/add', {text, userId}, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    "Accept": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
+                    "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
                 }
             })
             .then((response) => {
@@ -45,7 +55,12 @@ export const MainPage = () => {
         try{
             await axios.delete(`https://popetrov-mern.herokuapp.com/api/data/delete/${id}`, {id}, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    "Accept": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
+                    "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
                 }
             })
             .then(() => getData())
