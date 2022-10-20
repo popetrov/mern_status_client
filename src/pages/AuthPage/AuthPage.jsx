@@ -59,7 +59,7 @@ export const AuthPage = () => {
                     <div className="container">
                         <div className="auth-page">
                             <Route path="/login">
-                                <h3 className='header'>Авторизация700</h3>
+                                <h3 className='header'>Авторизация</h3>
                                 <form 
                                     className='form form-login'
                                     onSubmit={(e) => e.preventDefault()}
