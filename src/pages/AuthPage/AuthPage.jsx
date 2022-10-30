@@ -25,16 +25,21 @@ export const AuthPage = () => {
                 headers: {
                     'Content-Type': 'application/json',
                     "Accept": "application/json",
-                    "Access-Control-Allow-Origin": "https://popetrov-mern.herokuapp.com",
+                    "Access-Control-Allow-Origin": "*",
                     "X-Requested-With": "XMLHttpRequest",
                     "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
                     "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
                 }
             })
+            .then(
+                (response => {
+                    window.M.toast({html: response.data.message, classes: 'rounded green'})
+                })
+            )
             
             history.push('/')
         }catch(e){
-            console.log(e)
+            window.M.toast({html: e.response.data.message, classes: 'rounded red'})
         }
     }
 
@@ -44,7 +49,7 @@ export const AuthPage = () => {
                 headers: {
                     'Content-Type': 'application/json',
                     "Accept": "application/json",
-                    "Access-Control-Allow-Origin": "https://popetrov-mern.herokuapp.com",
+                    "Access-Control-Allow-Origin": "*",
                     "X-Requested-With": "XMLHttpRequest",
                     "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
                     "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
@@ -52,9 +57,12 @@ export const AuthPage = () => {
             })
             .then(response => {
                 login(response.data.token, response.data.userId)
+                window.M.toast({html: response.data.message, classes: 'rounded green'})
             })
+            
         }catch(e){
             console.log(e)
+            window.M.toast({html: e.response.data.message, classes: 'rounded red', inDuration: 600})
         }
     }
     return (
