@@ -82,6 +82,13 @@ export const MainPage = () => {
                 >
                     <div className="row">
                         <div className="input-field col s12">
+                            <div>
+                                <input id='file' name='file' className='input-add-file' type="file"/>
+                                <label className='right' htmlFor="file">
+                                    <i className='material-icons add right'>add</i>
+                                    Загрузите картинку
+                                </label>
+                            </div>
                             <input 
                                 type="text"
                                 id='text'
@@ -92,6 +99,7 @@ export const MainPage = () => {
                             />
                             <label htmlFor="input">Воспоминание</label>
                         </div>
+
                         <div className="row">
                             <button 
                                 className="waves-effect waves-light btn green"
@@ -109,20 +117,20 @@ export const MainPage = () => {
                         memories.map((memory, i) => {
                             return (
                                 <div className="row flex todos-item" key={i}>
-                                    <div className="col todos-num">
-                                        {i+1}
-                                    </div>
-                                    <div className="col todos-text">
-                                        {memory.text}
-                                    </div>
-                                    <div className="todos-buttons col">
-                                        <i 
-                                            className="material-icons red-text"
-                                            onClick={() => removeData(memory._id)}
-                                        >
-                                            delete_forever
-                                        </i>
-                                    </div>
+                                        <div className="col todos-num">
+                                            {i+1}
+                                        </div>
+                                        <div className="col todos-text">
+                                            {memory.text}
+                                        </div>
+                                        <div className="todos-buttons col">
+                                            <i 
+                                                className="material-icons red-text"
+                                                onClick={() => removeData(memory._id)}
+                                            >
+                                                delete_forever
+                                            </i>
+                                        </div>
                                 </div>
                             )
                         })
