@@ -20,7 +20,7 @@ export const MainPage = () => {
                 headers: {
                     'Content-Type': 'application/json',
                     "Accept": "application/json",
-                    "Access-Control-Allow-Origin": "https://popetrov-mern.herokuapp.com/api/data",
+                    "Access-Control-Allow-Origin": "*",
                     "X-Requested-With": "XMLHttpRequest",
                     "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
                     "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
