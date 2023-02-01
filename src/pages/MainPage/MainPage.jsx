@@ -7,7 +7,12 @@ import './MainPage.css'
 export const MainPage = () => {
     const [text, setText] = useState('')
     const [memories, setMemories] = useState([])
+    const [file, setFile] = useState(null)
     const {userId} = useContext(AuthContext)
+
+    const changeHandle = (e) => {
+
+    }
 
     const getData = useCallback(async () => {
         try{
@@ -15,7 +20,7 @@ export const MainPage = () => {
                 headers: {
                     'Content-Type': 'application/json',
                     "Accept": "application/json",
-                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Origin": "https://popetrov-mern.herokuapp.com/api/data",
                     "X-Requested-With": "XMLHttpRequest",
                     "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
                     "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
@@ -83,7 +88,13 @@ export const MainPage = () => {
                     <div className="row">
                         <div className="input-field col s12">
                             <div>
-                                <input id='file' name='file' className='input-add-file' type="file"/>
+                                <input id='file'
+                                    name='file' 
+                                    className='input-add-file' 
+                                    type='file'
+                                    accept='image/*'
+                                    onChange={changeHandle}
+                                />
                                 <label className='right' htmlFor="file">
                                     <i className='material-icons add right'>add</i>
                                     Загрузите картинку
